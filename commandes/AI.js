@@ -19,14 +19,14 @@ zokou({nomCom:"zokou",reaction:"📡",categorie:"IA"},async(dest,zk,commandeOpti
 const {repondre,ms,arg}=commandeOptions;
 
   if(!arg || !arg[0])
-  {return repondre("Veuillez poser votre question .")}
+  {return repondre("Please ask your question .")}
   var quest = arg.join(' ');
 try{
   let rep= await ia(quest);
  let tex = await traduire(rep , { to: 'fr' })
 
   repondre(tex);
-}catch(e){ repondre("oupsaa une erreur : "+e)}
+}catch(e){ repondre("oops an error : "+e)}
   
 
 });
@@ -37,7 +37,7 @@ zokou({nomCom:"bot",reaction:"📡",categorie:"IA"},async(dest,zk,commandeOption
   const {repondre,ms,arg}=commandeOptions;
   
     if(!arg || !arg[0])
-    {return repondre("oui je vous ecoute.")}
+    {return repondre("yes I'm listening to you.")}
     var quest = arg.join(' ');
   try{
     
@@ -55,16 +55,16 @@ fetch(`http://api.brainshop.ai/get?bid=177607&key=NwzhALqeO1kubFVD&uid=[uid]&msg
       repondre(translatedResponse);
     })
     .catch(error => {
-      console.error('Erreur lors de la traduction en français :', error);
-      repondre('Erreur lors de la traduction en français');
+      console.error('Error when translating into French :', error);
+      repondre('Error when translating into French');
     });
 })
 .catch(error => {
-  console.error('Erreur lors de la requête à BrainShop :', error);
-  repondre('Erreur lors de la requête à BrainShop');
+  console.error('Error requesting BrainShop :', error);
+  repondre('Error requesting BrainShop');
 });
 
-  }catch(e){ repondre("oupsaa une erreur : "+e)}
+  }catch(e){ repondre("oops an error : "+e)}
     
   
   });  
