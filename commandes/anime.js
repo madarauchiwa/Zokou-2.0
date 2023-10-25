@@ -30,8 +30,8 @@ async (origineMessage, zk, commandeOptions) => {
     // Envoyer l'image et les informations
     zk.sendMessage(origineMessage, { image: { url: imageUrl }, caption: message }, { quoted: ms });
   } catch (error) {
-    console.error('Erreur lors de la récupération des données depuis le JSON :', error);
-    repondre('Erreur lors de la récupération des données depuis le JSON.');
+    console.error('Error retrieving data from JSON :', error);
+    repondre('Error retrieving data from JSON.');
   }
 });
 
@@ -42,14 +42,14 @@ zokou({
   const { arg, repondre } = commandeOptions;
   
   if (!arg[0] || arg === "") {
-    repondre("Donnez-moi une requête.\n*Exemple : .google Qui est Suhail Tech.*");
+    repondre("Give me a query.\n*Example: .google Who is Suhail Tech.*");
     return;
   }
 
   const google = require('google-it');
   try {
     const results = await google({ query: arg.join(" ") });
-    let msg = `Recherche Google pour : ${arg}\n\n`;
+    let msg = `Google search for : ${arg}\n\n`;
 
     for (let result of results) {
       msg += `➣ Titre : ${result.title}\n`;
@@ -60,7 +60,7 @@ zokou({
     const trdmsg = await traduire(msg,{to : 'fr'})
     repondre(trdmsg);
   } catch (error) {
-    repondre("Une erreur s'est produite lors de la recherche Google.");
+    repondre("An error occurred during Google search.");
   }
 });
 
@@ -71,7 +71,7 @@ zokou({
   const { arg, repondre , ms } = commandeOptions;
 
   if (!arg[0] || arg === "") {
-    repondre("donnez le nom d'une  série ou un film.");
+    repondre("give the name of a series or film.");
     return;
   }
 
@@ -83,19 +83,19 @@ zokou({
     let imdbInfo = "⚍⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚍\n";
     imdbInfo += " ``` 𝕀𝕄𝔻𝔹 𝕊𝔼𝔸ℝℂℍ```\n";
     imdbInfo += "⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎⚎\n";
-    imdbInfo += "🎬Titre      : " + imdbData.Title + "\n";
-    imdbInfo += "📅Année      : " + imdbData.Year + "\n";
-    imdbInfo += "⭐Évaluation : " + imdbData.Rated + "\n";
-    imdbInfo += "📆Sortie     : " + imdbData.Released + "\n";
-    imdbInfo += "⏳Durée      : " + imdbData.Runtime + "\n";
+    imdbInfo += "🎬Title    : " + imdbData.Title + "\n";
+    imdbInfo += "📅year      : " + imdbData.Year + "\n";
+    imdbInfo += "⭐Assessment : " + imdbData.Rated + "\n";
+    imdbInfo += "📆Release    : " + imdbData.Released + "\n";
+    imdbInfo += "⏳Runtime     : " + imdbData.Runtime + "\n";
     imdbInfo += "🌀Genre      : " + imdbData.Genre + "\n";
-    imdbInfo += "👨🏻‍💻Réalisateur : " + imdbData.Director + "\n";
-    imdbInfo += "✍Scénariste : " + imdbData.Writer + "\n";
-    imdbInfo += "👨Acteurs   : " + imdbData.Actors + "\n";
+    imdbInfo += "👨🏻‍💻Director : " + imdbData.Director + "\n";
+    imdbInfo += "✍writers : " + imdbData.Writer + "\n";
+    imdbInfo += "👨actors  : " + imdbData.Actors + "\n";
     imdbInfo += "📃Synopsis  : " + imdbData.Plot + "\n";
-    imdbInfo += "🌐Langue    : " + imdbData.Language + "\n";
-    imdbInfo += "🌍Pays      : " + imdbData.Country + "\n";
-    imdbInfo += "🎖️Récompenses : " + imdbData.Awards + "\n";
+    imdbInfo += "🌐Language  : " + imdbData.Language + "\n";
+    imdbInfo += "🌍Contry      : " + imdbData.Country + "\n";
+    imdbInfo += "🎖️Awards : " + imdbData.Awards + "\n";
     imdbInfo += "📦BoxOffice : " + imdbData.BoxOffice + "\n";
     imdbInfo += "🏙️Production : " + imdbData.Production + "\n";
     imdbInfo += "🌟score : " + imdbData.imdbRating + "\n";
@@ -110,7 +110,7 @@ zokou({
       quoted: ms,
     });
   } catch (error) {
-    repondre("Une erreur s'est produite lors de la recherche IMDb.");
+    repondre("An error occurred while searching IMDb.");
   }
 });
 
@@ -122,7 +122,7 @@ zokou({
   const { arg, repondre,ms , nomAuteurMessage } = commandeOptions;
 
   if (!arg[0] || arg.length !== 1) {
-    repondre("Utilisation incorrecte. Exemple : .emojimix 😀;🥰");
+    repondre("Incorrect use. Example: .emojimix 😀;🥰");
     return;
   }
 
@@ -130,7 +130,7 @@ zokou({
   const emojis = arg.join(' ').split(';');
 
   if (emojis.length !== 2) {
-    repondre("Veuillez spécifier deux emojis en utilisant un point-virgule comme séparateur.");
+    repondre("Please specify two emojis using a semicolon as a separator.");
     return;
   }
 
@@ -156,10 +156,10 @@ zokou({
       zk.sendMessage(dest, { sticker: stickerBuffer2 }, { quoted: ms });
 
     } else {
-      repondre("Impossible de créer l'emoji mix.");
+      repondre("Unable to create emoji mix.");
     }
   } catch (error) {
-    repondre("Une erreur s'est produite lors de la création de l'emoji mix." + error );
+    repondre("An error occurred while creating the emoji mix." + error );
   }
 });
 
