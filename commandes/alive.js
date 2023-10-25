@@ -54,7 +54,7 @@ const date = moment().format('DD/MM/YYYY');
         repondre("🥵🥵 Menu erreur " + e);
     }
 } 
-// Vérification pour .jpeg ou .png
+// Checking for .jpeg or .png
 else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
     try {
         zk.sendMessage(dest, { image: { url: lien }, caption: alivemsg }, { quoted: ms });
@@ -71,14 +71,14 @@ else {
 }
 
     } else {
-        if(!superUser) { repondre("il n'a pas d'alive pour ce bot") ; return};
+        if(!superUser) { repondre("there is no alive for this bot") ; return};
 
-      await   repondre("Vous n'avez pas encore enregistrer votre alive , pour ce faire ;\n tapez entrez apres alive votre message et votre lien image ou video dans ce contete : .alive message;lien");
-         repondre(" je prend mon temps pour t'expliquer ; gars a toi si tu fait faux")
+      await   repondre("You have not yet saved your alive, to do this; type enter after alive your message and your image or video link in this context: .alive message;lien");
+         repondre(" I'm taking my time to explain to you; be careful if you are wrong")
      }
  } else {
 
-    if(!superUser) { repondre ("Seul le proprietaire a le droit de modifier l'alive") ; return};
+    if(!superUser) { repondre ("Only the owner has the right to modify the alive") ; return};
 
   
     const texte = arg.join(' ').split(';')[0];
@@ -88,7 +88,7 @@ else {
     
 await addOrUpdateDataInAlive(texte , tlien)
 
-repondre('message alive actualiser avec succes')
+repondre('message alive refresh successfully')
 
 }
     });
