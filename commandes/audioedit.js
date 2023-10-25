@@ -24,7 +24,7 @@ zokou (
                 try {
                   exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
                     fs.unlinkSync(media);
-                    if (err) return repondre("erreur lors de la procedure " + err );
+                    if (err) return repondre("error during the procedure " + err );
                    
                     let buff1 = fs.readFileSync(ran);
                    
@@ -37,15 +37,15 @@ zokou (
                   });
                 } catch (e) {
                  
-                  repondre("erreur");
+                  repondre("error");
                 }
 
             } else {
-                repondre('la commande ne marche qu\'avec des messages audio')
+                repondre('the command only works with audio messages')
             }
 
         } else {
-            repondre('Veillez mentionner un audio svp')
+            repondre('Please mention an audio')
         }
     }
 );
@@ -69,7 +69,7 @@ zokou (
                 try {
                   exec(`ffmpeg -i ${media2} ${set2} ${ran2}`, (err, stderr, stdout) => {
                     fs.unlinkSync(media2);
-                    if (err) return repondre("erreur lors de la procedure " + err );
+                    if (err) return repondre("error during the procedure " + err );
                    
                     let buff2 = fs.readFileSync(ran2);
                    
@@ -82,15 +82,15 @@ zokou (
                   });
                 } catch (e) {
                  
-                  repondre("erreur");
+                  repondre("error");
                 }
 
             } else {
-                repondre('la commande ne marche qu\'avec des messages audio')
+                repondre('the command only works with audio messages')
             }
 
         } else {
-            repondre('Veillez mentionner un audio svp')
+            repondre('Please mention an audio')
         }
     }
 );
@@ -112,7 +112,7 @@ zokou(
           try {
             exec(`ffmpeg -i ${media3} ${set3} ${ran3}`, (err, stderr, stdout) => {
               fs.unlinkSync(media3);
-              if (err) return repondre("Erreur lors de la procédure " + err);
+              if (err) return repondre("error during the procedure" + err);
   
               let buff3 = fs.readFileSync(ran3);
   
@@ -120,13 +120,13 @@ zokou(
               fs.unlinkSync(ran3);
             });
           } catch (e) {
-            repondre("Erreur : " + e);
+            repondre("Error : " + e);
           }
         } else {
-          repondre("La commande ne marche qu'avec des messages audio");
+          repondre("The command only works with audio messages");
         }
       } else {
-        repondre("Veuillez mentionner un audio svp");
+        repondre("Please mention an audio");
       }
     }
   );
@@ -148,7 +148,7 @@ zokou(
           try {
             exec(`ffmpeg -i ${media5} ${set5} ${ran5}`, (err, stderr, stdout) => {
               fs.unlinkSync(media5);
-              if (err) return repondre("Erreur lors de la procédure " + err);
+              if (err) return repondre("error during the procedure" + err);
   
               let buff5 = fs.readFileSync(ran5);
   
@@ -156,13 +156,13 @@ zokou(
               fs.unlinkSync(ran5);
             });
           } catch (e) {
-            repondre("Erreur : " + e);
+            repondre("Error : " + e);
           }
         } else {
-          repondre("La commande ne marche qu'avec des messages audio");
+          repondre("The command only works with audio messages");
         }
       } else {
-        repondre("Veuillez mentionner un audio svp");
+        repondre("Please mention an audio");
       }
     }
   );
@@ -185,7 +185,7 @@ zokou(
           try {
             exec(`ffmpeg -i ${mediaSmooth} ${setSmooth} ${ranSmooth}`, (err, stderr, stdout) => {
               fs.unlinkSync(mediaSmooth);
-              if (err) return repondre("Erreur lors de la procédure " + err);
+              if (err) return repondre("error during the procedure" + err);
   
               let buff6 = fs.readFileSync(ranSmooth);
   
@@ -193,13 +193,13 @@ zokou(
               fs.unlinkSync(ranSmooth);
             });
           } catch (e) {
-            repondre("Erreur : " + e);
+            repondre("Error : " + e);
           }
         } else {
-          repondre("La commande ne marche qu'avec des audios");
+          repondre("The command only works with audio messages");
         }
       } else {
-        repondre("Veuillez mentionner un audio svp");
+        repondre("Please mention an audio");
       }
     }
   );
@@ -222,7 +222,7 @@ zokou(
           try {
             exec(`ffmpeg -i ${mediaTempo} ${setTempo} ${ranTempo}`, (err, stderr, stdout) => {
               fs.unlinkSync(mediaTempo);
-              if (err) return repondre("Erreur lors de la procédure " + err);
+              if (err) return repondre("error during the procedure " + err);
   
               let buff7 = fs.readFileSync(ranTempo);
   
@@ -230,13 +230,13 @@ zokou(
               fs.unlinkSync(ranTempo);
             });
           } catch (e) {
-            repondre("Erreur : " + e);
+            repondre("Error : " + e);
           }
         } else {
-          repondre("La commande ne marche qu'avec des messages audio");
+          repondre("The command only works with audio messages");
         }
       } else {
-        repondre("Veuillez mentionner un audio svp");
+        repondre("Please mention an audio");
       }
     }
   );
@@ -259,7 +259,7 @@ zokou(
           try {
             exec(`ffmpeg -i ${mediaNightcore} ${setNightcore} ${ranNightcore}`, (err, stderr, stdout) => {
               fs.unlinkSync(mediaNightcore);
-              if (err) return repondre("Erreur lors de la procédure " + err);
+              if (err) return repondre("error during the procedure " + err);
   
               let buff8 = fs.readFileSync(ranNightcore);
   
@@ -270,10 +270,10 @@ zokou(
             repondre("Erreur : " + e);
           }
         } else {
-          repondre("La commande ne marche qu'avec des messages audio");
+          repondre("The command only works with audio messages");
         }
       } else {
-        repondre("Veuillez mentionner un audio svp");
+        repondre("Please mention an audio");
       }
     }
   );
