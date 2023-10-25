@@ -34,51 +34,51 @@ zokou({nomCom:"antibot",categorie:"Groupe"},async(dest,zk,commandeOptions)=>{
               try{
 
                    if (!arg || arg == "") {
-      repondre(`*Exemple : * ${prefixe}antibot oui (pour activer l'antibot) ou ${prefixe}antibot non (pour désactiver l antibot )`);return;
+      repondre(`*Exemple : * ${prefix}antibot yes (to activate the antibot) or ${prefix}antibot no (to deactivate the antibot)`);return;
     }
-                if(args==="oui")
+                if(args==="yes")
                 {
                   if(!dev){
                        if(!verifAdmin)
                    {
-                         repondre("Désolé vous ne pouvez pas activer l'antibot car vous n'êtes pas un administrateur du groupe .");return;
+                         repondre("Sorry you cannot activate the antibot because you are not an administrator of the group.");return;
                    }else{
 
                            if(!dev){
                                         if(verifZokouAdmin)
                                         {
-                                          if(req=="oui")
-                                          {repondre("L'antibot est déja activé pour ce groupe . "); return;}else{await ajouterAntibot(dest,args);repondre("Antibot activé avec succès !")}
-                                        }else{repondre("Désolé je ne peux pas activer l'antibot car je ne suis pas administrateur du groupe .")}
+                                          if(req=="yes")
+                                          {repondre("Antibot is already enabled for this group. "); return;}else{await ajouterAntibot(dest,args);repondre("Antibot successfully activated!")}
+                                        }else{repondre("Sorry I can't activate the antibot because I am not an administrator of the group.")}
                            }else{
 
-                                        if(req=="oui")
-                                          {repondre("L'antibot est déja activé pour ce groupe . "); return;}else{await ajouterAntibot(dest,args);repondre("Antibot activé avec succès !")}
+                                        if(req=="yes")
+                                          {repondre("Antibot is already enabled for this group. "); return;}else{await ajouterAntibot(dest,args);repondre("Antibot successfully activated !")}
                            }
-                   }}else{if(req=="oui")
-                                          {repondre("L'antibot est déja activé pour ce groupe . "); return;}else{await ajouterAntibot(dest,args);repondre("Antibot activé avec succès !")}}
-                }else if(args=="non")
+                   }}else{if(req=="yes")
+                                          {repondre("Antibot is already enabled for this group. "); return;}else{await ajouterAntibot(dest,args);repondre("Antibot successfully activated!")}}
+                }else if(args=="no")
                 {
                      if(!dev)
                      {
                                        if(!verifAdmin)
                    {
-                         repondre("Désolé vous ne pouvez pas désactiver l'antibot car vous n'êtes pas un administrateur du groupe .");return;
+                         repondre("Sorry you cannot disable antibot because you are not an administrator of the group .");return;
                    }else{
 
                            if(!dev){
                                         if(verifZokouAdmin)
                                         {
-                                          if(req=="non")
-                                          {repondre("L'antibot est déja désactivé pour ce groupe . "); return;}else{await ajouterAntibot(dest,args);repondre("Antibot désactivé avec succès !")}
-                                        }else{repondre("Désolé je ne peux pas désactiver l'antibot car je ne suis pas administrateur du groupe .")}
+                                          if(req=="no")
+                                          {repondre("Antibot is already enabled for this group.. "); return;}else{await ajouterAntibot(dest,args);repondre("Antibot successfully activated! !")}
+                                        }else{repondre("Sorry I can't disable antibot because I'm not a group administrator .")}
                            }else{
 
-                                        if(req=="non")
-                                          {repondre("L'antibot est déja désactivé pour ce groupe . "); return;}else{await ajouterAntibot(dest,args);repondre("Antibot désactivé avec succès !")}
+                                        if(req=="no")
+                                          {repondre("Antibot is already enabled for this group. "); return;}else{await ajouterAntibot(dest,args);repondre("Antibot successfully disabled !")}
                            }
-                   }}else{if(req=="non")
-                                          {repondre("L'antibot est déja désactivé pour ce groupe . "); return;}else{await ajouterAntibot(dest,args);repondre("Anti-bot désactivé avec succès !")}}
+                   }}else{if(req=="no")
+                                          {repondre("Antibot is already enabled for this group.. "); return;}else{await ajouterAntibot(dest,args);repondre("Antibot successfully activated!!")}}
                 }else if(args="état"||args=="etat")
                 {
                       /*  req=="oui"?${repondre("*Etat anti-bot :* \n L'anti-bot est activé pour ce groupe");return;}: req=="non"?${repondre("*Etat anti-bot :* \n L'anti-bot est désactivé pour ce groupe");return;}:"";*/
