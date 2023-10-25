@@ -11,7 +11,7 @@ zokou({nomCom:"antibot",categorie:"Groupe"},async(dest,zk,commandeOptions)=>{
   let {repondre,arg,ms,prefixe,dev,superUser,verifAdmin,verifZokouAdmin,verifGroupe}=commandeOptions;
 
   if(!verifGroupe)
-  {repondre("Pour les groupes uniquement .");return;}
+  {repondre("for groups only .");return;}
   const args = arg.join(" ");
 
   const demandeAntibot =async(f)=>
