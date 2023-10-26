@@ -12,7 +12,7 @@ const { uploadImageToImgur } = require('../framework/imgur');
 
 
 
-zokou({ nomCom: "appel", categorie: "Groupe", reaction: "📣" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "tagall", categorie: "Groupe", reaction: "📣" }, async (dest, zk, commandeOptions) => {
 
   const { ms, repondre, arg, verifGroupe, nomGroupe, infosGroupe, nomAuteurMessage, verifAdmin, superUser } = commandeOptions
 
@@ -31,8 +31,8 @@ zokou({ nomCom: "appel", categorie: "Groupe", reaction: "📣" }, async (dest, z
   tag += `========================\n  
         🌟 *Zokou-Md* 🌟
 ========================\n
-👥 Groupe : ${nomGroupe} 🚀 
-👤 Auteur : *${nomAuteurMessage}* 👋 
+👥 Group : ${nomGroupe} 🚀 
+👤 Autor : *${nomAuteurMessage}* 👋 
 📜 Message : *${mess}* 📝
 ========================\n
 \n
@@ -60,7 +60,7 @@ zokou({ nomCom: "appel", categorie: "Groupe", reaction: "📣" }, async (dest, z
 });
 
 
-zokou({ nomCom: "lien", categorie: "Groupe", reaction: "🙋" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "link", categorie: "Groupe", reaction: "🙋" }, async (dest, zk, commandeOptions) => {
   const { repondre, nomGroupe, nomAuteurMessage, verifGroupe } = commandeOptions;
   if (!verifGroupe) { repondre("wait bro , you want the link to my dm?"); return; };
 
@@ -68,7 +68,7 @@ zokou({ nomCom: "lien", categorie: "Groupe", reaction: "🙋" }, async (dest, zk
   var link = await zk.groupInviteCode(dest)
   var lien = `https://chat.whatsapp.com/${link}`;
 
-  let mess = `salut ${nomAuteurMessage} , here is the group link ${nomGroupe} \n
+  let mess = `hello ${nomAuteurMessage} , here is the group link ${nomGroupe} \n
 
 Lien :${lien}`
   repondre(mess)
@@ -76,7 +76,7 @@ Lien :${lien}`
 
 });
 /** *nommer un membre comme admin */
-zokou({ nomCom: "nommer", categorie: "Groupe", reaction: "👨🏿‍💼" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "promote", categorie: "Groupe", reaction: "👨🏿‍💼" }, async (dest, zk, commandeOptions) => {
   let { ms, repondre, msgRepondu, infosGroupe, auteurMsgRepondu, verifAdmin, verifZokouAdmin, verifGroupe, utilisateur, mbre, auteurMessage, superUser, idBot } = commandeOptions;
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   if (!verifGroupe) { return repondre("For groups only"); }
@@ -138,7 +138,7 @@ zokou({ nomCom: "nommer", categorie: "Groupe", reaction: "👨🏿‍💼" }, as
 //fin nommer
 /** ***demettre */
 
-zokou({ nomCom: "demettre", categorie: "Groupe", reaction: "👨🏿‍💼" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "demote", categorie: "Groupe", reaction: "👨🏿‍💼" }, async (dest, zk, commandeOptions) => {
   let { ms, repondre, msgRepondu, infosGroupe, auteurMsgRepondu, verifAdmin, verifZokouAdmin, verifGroupe, utilisateur, mbre, auteurMessage, superUser, idBot } = commandeOptions;
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   if (!verifGroupe) { return repondre("For groups only"); }
@@ -204,7 +204,7 @@ zokou({ nomCom: "demettre", categorie: "Groupe", reaction: "👨🏿‍💼" }, 
 
 /** ***fin démettre****  **/
 /** **retirer** */
-zokou({ nomCom: "retirer", categorie: "Groupe", reaction: "👨🏿‍💼" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "remove", categorie: "Groupe", reaction: "👨🏿‍💼" }, async (dest, zk, commandeOptions) => {
   let { ms, repondre, msgRepondu, infosGroupe, auteurMsgRepondu, verifAdmin, verifZokouAdmin, verifGroupe, utilisateur, mbre, nomAuteurMessage, auteurMessage, superUser, idBot } = commandeOptions;
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   if (!verifGroupe) { return repondre("for groups only"); }
@@ -280,7 +280,7 @@ zokou({ nomCom: "retirer", categorie: "Groupe", reaction: "👨🏿‍💼" }, a
 /** *****fin retirer */
 
 
-zokou({ nomCom: "supp", categorie: "Groupe",reaction:"🧹" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "del", categorie: "Groupe",reaction:"🧹" }, async (dest, zk, commandeOptions) => {
 
   const { ms, repondre, verifGroupe,auteurMsgRepondu,idBot, msgRepondu, verifAdmin, superUser, auteurMessage ,verifZokouAdmin} = commandeOptions;
   
@@ -348,7 +348,7 @@ zokou({ nomCom: "info", categorie: "Groupe" }, async (dest, zk, commandeOptions)
 
     let mess = {
       image: { url: ppgroup },
-      caption:  `*━━━━『Info du groupe』━━━━*\n\n*🎐Nom:* ${info.subject}\n\n*🔩ID du Groupe:* ${dest}\n\n*🔍Desc:* \n\n${info.desc}`
+      caption:  `*━━━━『Info du groupe』━━━━*\n\n*🎐Name:* ${info.subject}\n\n*🔩Group's ID:* ${dest}\n\n*🔍Desc:* \n\n${info.desc}`
     }
 
 
@@ -359,7 +359,7 @@ zokou({ nomCom: "info", categorie: "Groupe" }, async (dest, zk, commandeOptions)
 
  //------------------------------------antilien-------------------------------
 
- zokou({ nomCom: "antilien", categorie: "Groupe", reaction: "🔗" }, async (dest, zk, commandeOptions) => {
+ zokou({ nomCom: "antilink", categorie: "Groupe", reaction: "🔗" }, async (dest, zk, commandeOptions) => {
 
 
   var { ms, repondre, arg, verifGroupe, auteurMessage, superUser, verifZokouAdmin, verifAdmin,prefixe, dev } = commandeOptions;
@@ -373,7 +373,7 @@ zokou({ nomCom: "info", categorie: "Groupe" }, async (dest, zk, commandeOptions)
   if( superUser || verifAdmin) {
     const enetatoui = await verifierEtatJid(dest)
     try {
-      if (!arg || !arg[0] || arg === ' ') { repondre('Here is an explanation of how zokou's antilink works:\nTo activate the antilink, add after the command "yes" or "no" To modify the action of the antilink, type after the command action/"your-action " ; the different actions are deleted; warn and remove') ; return};
+      if (!arg || !arg[0] || arg === ' ') { repondre('Here is an explanation of how zokou\'s antilink works:\nTo activate the antilink, add after the command "yes" or "no" To modify the action of the antilink, type after the command action/"your-action " ; the different actions are delete; warn and remove') ; return};
      
       if(arg[0] === 'oui') {
 
@@ -401,7 +401,7 @@ zokou({ nomCom: "info", categorie: "Groupe" }, async (dest, zk, commandeOptions)
                repondre(`the action of the antilink has been updated on ${arg.join('').split("/")[1]}`);
             
 
-            } else repondre('Here is an explanation of how zokou's antilink works:\nTo activate the antilink, add after the command "yes" or "no" To modify the action of the antilink, type after the command action/"your-action " ; the different actions are deleted; warn and remove')
+            } else repondre('Here is an explanation of how zokou\'s antilink works:\nTo activate the antilink, add after the command "yes" or "no" To modify the action of the antilink, type after the command action/"your-action " ; the different actions are delete; warn and remove')
 
       
     } catch (error) {
@@ -474,7 +474,7 @@ zokou({ nomCom: "info", categorie: "Groupe" }, async (dest, zk, commandeOptions)
 
 //----------------------------------------------------------------------------
 
-zokou({ nomCom: "groupe", categorie: "Groupe" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "group", categorie: "Groupe" }, async (dest, zk, commandeOptions) => {
 
   const { ms, repondre, verifGroupe, msgRepondu, verifAdmin, superUser, auteurMessage, arg } = commandeOptions;
 
@@ -486,11 +486,11 @@ zokou({ nomCom: "groupe", categorie: "Groupe" }, async (dest, zk, commandeOption
   if (!arg[0]) { repondre('Instructions:\n\nType group open or close'); return; }
   const option = arg.join(' ')
   switch (option) {
-    case "ouvrir":
+    case "open":
       await zk.groupSettingUpdate(dest, 'not_announcement')
       repondre('group open')
       break;
-    case "fermer":
+    case "close":
       await zk.groupSettingUpdate(dest, 'announcement');
       repondre('Group close successfully');
       break;
@@ -499,7 +499,7 @@ zokou({ nomCom: "groupe", categorie: "Groupe" }, async (dest, zk, commandeOption
 
 });
 
-zokou({ nomCom: "bye", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "left", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
 
   const { ms, repondre, verifGroupe, msgRepondu, verifAdmin, superUser, auteurMessage } = commandeOptions;
   if (!verifGroupe) { repondre("order reserved for group only"); return };
@@ -511,7 +511,7 @@ zokou({ nomCom: "bye", categorie: "Mods" }, async (dest, zk, commandeOptions) =>
   await zk.groupLeave(dest)
 });
 
-zokou({ nomCom: "gnom", categorie: "Groupe" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "gname", categorie: "Groupe" }, async (dest, zk, commandeOptions) => {
 
   const { arg, ms, repondre, verifGroupe, msgRepondu, verifAdmin, superUser, auteurMessage } = commandeOptions;
 
@@ -575,7 +575,7 @@ zokou({ nomCom: "gpp", categorie: "Groupe" }, async (dest, zk, commandeOptions) 
 });
 
 /////////////
-zokou({nomCom:"annonce",categorie:"Groupe",reaction:"🎤"},async(dest,zk,commandeOptions)=>{
+zokou({nomCom:"hidetag",categorie:"Groupe",reaction:"🎤"},async(dest,zk,commandeOptions)=>{
 
 
 const {ms,repondre,msgRepondu,verifGroupe,prefixe,arg}=commandeOptions;
