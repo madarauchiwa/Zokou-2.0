@@ -2,7 +2,7 @@ const { zokou } = require("../framework/zokou");
 const canvacord = require("canvacord");
 const {uploadImageToImgur} = require("../framework/imgur")
 
-// Fonction générique pour créer une commande canvacord
+// Generic function to create a canvacord order
 function createCanvacordCommand(commandName, canvacordFunction) {
   zokou({
     nomCom: commandName,
@@ -30,7 +30,7 @@ function createCanvacordCommand(commandName, canvacordFunction) {
 
       await zk.sendMessage(origineMessage, { image: result }, { quoted: ms });
     } catch (error) {
-      console.error(`Erreur lors de la commande "${commandName}":`, error);
+      console.error(`Error when ordering "${commandName}":`, error);
     }
   });
 }
