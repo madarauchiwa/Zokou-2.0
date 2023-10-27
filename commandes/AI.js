@@ -23,7 +23,7 @@ const {repondre,ms,arg}=commandeOptions;
   var quest = arg.join(' ');
 try{
   let rep= await ia(quest);
- let tex = await traduire(rep , { to: 'fr' })
+ let tex = await traduire(rep , { to: 'en' })
 
   repondre(tex);
 }catch(e){ repondre("oops an error : "+e)}
@@ -50,7 +50,7 @@ fetch(`http://api.brainshop.ai/get?bid=177607&key=NwzhALqeO1kubFVD&uid=[uid]&msg
   const botResponse = data.cnt;
   console.log(botResponse);
 
-  traduire(botResponse, { to: 'fr' })
+  traduire(botResponse, { to: 'en' })
     .then(translatedResponse => {
       repondre(translatedResponse);
     })
