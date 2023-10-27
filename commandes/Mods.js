@@ -21,7 +21,7 @@ zokou({ nomCom: "tgs", categorie: "Mods" }, async (dest, zk, commandeOptions) =>
   }
   const apikey = conf.APILOLHUMAIN
 
-  if (apikey === null || apikey === 'null') { repondre('Make sure to check your apikey or if you don't have one, make sure to create an account on api.lolhuman.xyz and get one.'); return; };
+  if (apikey === null || apikey === 'null') { repondre('Make sure to check your apikey or if you don\'t have one, make sure to create an account on api.lolhuman.xyz and get one.'); return; };
 
   if (!arg[0]) {
     repondre("please insert a Telegram sticker link");
@@ -65,7 +65,7 @@ zokou({ nomCom: "tgs", categorie: "Mods" }, async (dest, zk, commandeOptions) =>
 zokou({ nomCom: "crew", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, arg, auteurMessage, superUser, auteurMsgRepondu, msgRepondu } = commandeOptions;
 
-  if (!superUser) { repondre("Reserver au modérateur "); return };
+  if (!superUser) { repondre("only modds can use this command"); return };
 
   if (!arg[0]) { repondre('Please enter the name of the group to create'); return };
   if (!msgRepondu) { repondre('Please mention a member added '); return; }
@@ -78,10 +78,10 @@ zokou({ nomCom: "crew", categorie: "Mods" }, async (dest, zk, commandeOptions) =
 
 });
 
-zokou({ nomCom: "bye", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "left", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
 
   const { ms, repondre, verifGroupe, msgRepondu, verifAdmin, superUser, auteurMessage } = commandeOptions;
-  if (!verifGroupe) { repondre("commande reserver au groupe uniquement"); return };
+  if (!verifGroupe) { repondre("group only"); return };
   if (!superUser) {
     repondre("order reserved for the owner");
     return;
@@ -90,7 +90,7 @@ zokou({ nomCom: "bye", categorie: "Mods" }, async (dest, zk, commandeOptions) =>
   await zk.groupLeave(dest)
 });
 
-zokou({ nomCom: "rejoindre", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "join", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
 
   const { arg, ms, repondre, verifGroupe, msgRepondu, verifAdmin, superUser, auteurMessage } = commandeOptions;
 
@@ -125,7 +125,7 @@ zokou({ nomCom: "jid", categorie: "Mods" }, async (dest, zk, commandeOptions) =>
 
         }) ;
 
-  zokou({ nomCom: "envoi", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
+  /*zokou({ nomCom: "envoi", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
 
   const { arg, ms, repondre, verifGroupe, msgRepondu, verifAdmin, superUser, auteurMessage,auteurMsgRepondu } = commandeOptions;
 
@@ -144,11 +144,11 @@ zokou({ nomCom: "jid", categorie: "Mods" }, async (dest, zk, commandeOptions) =>
    const jid = arg.join(' ')
      
 
-    /*const msg = getMessageFromStore(auteurMsgRepondu, msgRepondu) */
+    /*const msg = getMessageFromStore(auteurMsgRepondu, msgRepondu)
 await zk.sendMessage( jid, { forward: msgRepondu }) // WA forward the message!
 
   })
-;
+; */
 
 zokou({ nomCom: "block", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
 
@@ -174,7 +174,7 @@ zokou({ nomCom: "block", categorie: "Mods" }, async (dest, zk, commandeOptions) 
 
   });
 
-zokou({ nomCom: "deblock", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "unblock", categorie: "Mods" }, async (dest, zk, commandeOptions) => {
 
   const { arg, ms, repondre, verifGroupe, msgRepondu, verifAdmin, superUser, auteurMessage,auteurMsgRepondu } = commandeOptions;
 
@@ -197,7 +197,7 @@ zokou({ nomCom: "deblock", categorie: "Mods" }, async (dest, zk, commandeOptions
   
     });
 
-zokou({ nomCom: "purge", categorie: "Groupe", reaction: "📣" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "kickall", categorie: "Groupe", reaction: "📣" }, async (dest, zk, commandeOptions) => {
 
   const { auteurMessage ,ms, repondre, arg, verifGroupe, nomGroupe, infosGroupe, nomAuteurMessage, verifAdmin, superUser,prefixe } = commandeOptions
 
@@ -207,7 +207,7 @@ zokou({ nomCom: "purge", categorie: "Groupe", reaction: "📣" }, async (dest, z
   if (!verifGroupe) { repondre("✋🏿 ✋🏿this command is reserved for groups ❌"); return; }
   if (superUser || auteurMessage == metadata.owner) { 
   
-   repondre('Non-admin members will be removed from the group. You have 5 seconds to reclaim your choice by restarting the bot.') ;
+   repondre('No_admin members will be removed from the group. You have 5 seconds to reclaim your choice by restarting the bot.') ;
    await sleep(5000)
   let membresGroupe = verifGroupe ? await infosGroupe.participants : "";
 try {
