@@ -23,9 +23,9 @@ async (origineMessage, zk, commandeOptions) => {
     const episodes = data.episodes;
     const status = data.status;
 
-    const texttraduit = await traduire(synopsis,{ to: 'fr' })
+    //const texttraduit = await traduire(synopsis,{ to: 'fr' })
 
-    const message = `📺 Titre: ${title}\n🎬 Épisodes: ${episodes}\n📡 Statut: ${status}\n📝 Synopsis: ${texttraduit}\n🔗 URL: ${data.url}`;
+    const message = `📺 Titre: ${title}\n🎬 Épisodes: ${episodes}\n📡 Statut: ${status}\n📝 Synopsis: ${synopsis}\n🔗 URL: ${data.url}`;
     
     // Envoyer l'image et les informations
     zk.sendMessage(origineMessage, { image: { url: imageUrl }, caption: message }, { quoted: ms });
@@ -57,8 +57,8 @@ zokou({
       msg += `➣ Lien : ${result.link}\n\n────────────────────────\n\n`;
     }
     
-    const trdmsg = await traduire(msg,{to : 'fr'})
-    repondre(trdmsg);
+   // const trdmsg = await traduire(msg,{to : 'fr'})
+    repondre(msg);
   } catch (error) {
     repondre("An error occurred during Google search.");
   }
@@ -105,7 +105,7 @@ zokou({
       image: {
         url: imdbData.Poster,
       },
-      caption: await traduire(imdbInfo , {to : 'fr'}),
+      caption: imdbInfo,
     }, {
       quoted: ms,
     });
