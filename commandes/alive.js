@@ -23,7 +23,7 @@ zokou(
 
         var mode = "public";
         if (s.MODE != "oui") {
-            mode = "privé";
+            mode = "private";
         }
       
     
@@ -35,10 +35,10 @@ const temps = moment().format('HH:mm:ss');
 const date = moment().format('DD/MM/YYYY');
 
     const alivemsg = `
-*Proprietaire* : ${s.NOM_OWNER}
+*Owner* : ${s.NOM_OWNER}
 *Mode* : ${mode}
 *Date* : ${date}
-*Heure* : ${temps}
+*Hours(GMT)* : ${temps}
 
  ${message}
  
